@@ -321,15 +321,15 @@ class Lunar
 header("Content-Type:text/html;charset=utf-8");
 $lunar = new Lunar();
 
-$date=$_GET['date'];
 
-if(!$date){
+
+if(!$_GET['date']){
     $datey=date("Y");
     $datem=date("m");
     $dated=date("d");
     $time =strtotime(date('Y-m-d'));
 }else{
-    $time = strtotime($date);  // 将指定日期转成时间戳 
+    $time = strtotime($_GET['date']);  // 将指定日期转成时间戳 
     $datey=date("Y",$time);
     $datem=date("m",$time);
     $dated=date("d",$time);
