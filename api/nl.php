@@ -5,6 +5,7 @@
  * Date: 17-3-9
  * Time: 上午9:32
  */
+error_reporting(0);
 class Lunar
 {
     var $MIN_YEAR = 1891;
@@ -321,20 +322,19 @@ class Lunar
 header("Content-Type:text/html;charset=utf-8");
 $lunar = new Lunar();
 
+$date=$_GET['date'];
 
-
-if(!$_GET['date']){
+if(!$date){
     $datey=date("Y");
     $datem=date("m");
     $dated=date("d");
     $time =strtotime(date('Y-m-d'));
 }else{
-    $time = strtotime($_GET['date']);  // 将指定日期转成时间戳 
+    $time = strtotime($date);  // 将指定日期转成时间戳 
     $datey=date("Y",$time);
     $datem=date("m",$time);
     $dated=date("d",$time);
 }
-
 
 
 $month = $lunar->convertSolarToLunar($datey, $datem, $dated);//将阳历转换为阴历
