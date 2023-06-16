@@ -1,2 +1,2 @@
 <?php
-echo ('sadas');
+echo "今天是 " . date("Y/m/d");
